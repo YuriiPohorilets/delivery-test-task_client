@@ -3,14 +3,26 @@ import { ListItem, Card, CardContent, CardMedia, CardActionArea, Typography } fr
 
 export const ShopsItem = ({ name, location, imgUrl, id }) => {
   return (
-    <ListItem>
-      <Card>
-        <CardActionArea component={Link} to={`/shops/${id}`}>
-          <CardMedia component="img" alt={name} image={imgUrl} />
+    <ListItem sx={{ maxWidth: '250px', p: 0 }}>
+      <Card sx={{ bgcolor: 'transparent', boxShadow: 0 }}>
+        <CardActionArea
+          component={Link}
+          to={`/shops/${id}`}
+          sx={{ position: 'relative', overflow: 'hidden', width: '250px', height: '180px' }}
+        >
+          <CardMedia
+            component="img"
+            alt={name}
+            image={imgUrl}
+            width={250}
+            height={180}
+            loading="lazzy"
+          />
 
-          <CardContent>
+          <CardContent
+            sx={{ position: 'absolute', top: 0, left: 0, bgcolor: 'primary.light', p: '4px 8px' }}
+          >
             <Typography>{name}</Typography>
-            <Typography>{location}</Typography>
           </CardContent>
         </CardActionArea>
       </Card>

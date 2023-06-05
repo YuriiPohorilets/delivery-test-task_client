@@ -12,3 +12,16 @@ export const getShops = createAsyncThunk('shops/getShops', async (_, { rejectWit
     return rejectWithValue(error.message);
   }
 });
+
+export const getProducts = createAsyncThunk(
+  'shops/getProducts',
+  async (shopId, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`/shops/${shopId}`);
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

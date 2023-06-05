@@ -14,7 +14,7 @@ export const Shops = () => {
   }, [dispatch]);
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', gap: '36px' }}>
       <SideBar />
 
       <Suspense>

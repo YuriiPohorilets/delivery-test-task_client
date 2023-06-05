@@ -40,3 +40,18 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.response.data);
   }
 });
+
+export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+  const { token } = thunkAPI.getState().auth;
+  if (!token) return thunkAPI.rejectWithValue('Oops, something went wrong!');
+
+  setAuthHeader(token);
+
+  try {
+    const { data } = await axios.get('auth/refresh');
+
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data);
+  }
+});
