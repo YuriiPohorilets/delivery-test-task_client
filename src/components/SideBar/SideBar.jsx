@@ -1,3 +1,5 @@
+import { ShopsList } from 'components/ShopsList/ShopsList';
+
 export const SideBar = () => {
-  return <div>SideBar</div>;
+  return <ShopsList />;
 };

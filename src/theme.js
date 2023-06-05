@@ -3,10 +3,11 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#0269b4',
-      darker: '#222746',
-      light: '#ffffff',
-      accent: '#d10a14',
+      main: '#A4D0A4',
+      darker: '#617A55',
+      light: '#FFF8D6',
+      accent: '#F7E1AE',
+      text: '#2b2b2b',
     },
 
     neutral: {
@@ -22,7 +23,7 @@ export const theme = createTheme({
   },
 
   typography: {
-    fontFamily: ['Comic Neue', 'sans-serif'].join(','),
+    fontFamily: ['Comfortaa', 'sans-serif'].join(','),
   },
 
   breakpoints: {
