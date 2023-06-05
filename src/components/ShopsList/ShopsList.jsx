@@ -11,18 +11,18 @@ export const ShopsList = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '24px',
+        gap: '16px',
         alignItems: 'center',
         p: '16px',
-        bgcolor: 'primary.main',
+        bgcolor: 'secondary.main',
         borderRadius: '8px',
         boxShadow: 3,
         maxHeight: '610px',
         overflowY: 'auto',
       }}
     >
-      {shops.map(({ _id, name, location, imgUrl }) => (
-        <ShopsItem key={_id} name={name} location={location} imgUrl={imgUrl} id={_id} />
+      {shops.map(shop => (
+        <ShopsItem key={shop._id} shop={shop} />
       ))}
     </List>
   );

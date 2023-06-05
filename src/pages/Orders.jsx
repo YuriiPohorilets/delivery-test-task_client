@@ -1,3 +1,5 @@
+import { OrderList } from 'components/OrderList/OrderList';
+
 export const Orders = () => {
-  return <div>Orders page</div>;
+  return <OrderList />;
 };

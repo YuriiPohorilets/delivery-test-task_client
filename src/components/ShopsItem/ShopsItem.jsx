@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom';
-import { ListItem, Card, CardContent, CardMedia, CardActionArea, Typography } from '@mui/material';
+import { ListItem, Card, CardMedia, CardActionArea } from '@mui/material';
 
-export const ShopsItem = ({ name, location, imgUrl, id }) => {
+export const ShopsItem = ({ shop }) => {
+  const { _id, name, imgUrl } = shop;
+
   return (
     <ListItem sx={{ maxWidth: '250px', p: 0 }}>
       <Card sx={{ bgcolor: 'transparent', boxShadow: 0 }}>
         <CardActionArea
           component={Link}
-          to={`/shops/${id}`}
-          sx={{ position: 'relative', overflow: 'hidden', width: '250px', height: '180px' }}
+          to={`/shops/${_id}`}
+          sx={{ overflow: 'hidden', width: '250px', height: '100px', borderRadius: '8px' }}
         >
           <CardMedia
             component="img"
@@ -18,12 +20,6 @@ export const ShopsItem = ({ name, location, imgUrl, id }) => {
             height={180}
             loading="lazzy"
           />
-
-          <CardContent
-            sx={{ position: 'absolute', top: 0, left: 0, bgcolor: 'primary.light', p: '4px 8px' }}
-          >
-            <Typography>{name}</Typography>
-          </CardContent>
         </CardActionArea>
       </Card>
     </ListItem>

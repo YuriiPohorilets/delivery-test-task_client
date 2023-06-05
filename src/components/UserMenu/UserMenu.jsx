@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import { useAuth } from 'hooks/useAuth';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Tooltip,
@@ -13,26 +13,33 @@ import {
 } from '@mui/material/';
 import { Logout, History, AccountCircle, ShoppingCart } from '@mui/icons-material/';
 import { logout } from 'redux/auth/operations';
-import { Link } from 'react-router-dom';
+import { selectCart } from 'redux/cart/selectors';
 
 export const UserMenu = () => {
-  const dispatch = useDispatch();
-  // const { user, isLoggedIn } = useAuth();
+  const [totalHitsCart, setTotalHitsCart] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
+  const { cart } = useSelector(selectCart);
+  const isOpen = !!anchorEl;
+  const dispatch = useDispatch();
+
+  const handleClick = e => setAnchorEl(e.currentTarget);
+
+  const handleClose = () => setAnchorEl(null);
+
+  const countHitsCart = products => {
+    return products.reduce((totalHits, product) => totalHits + product.quantity, 0);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+
+  useEffect(() => {
+    setTotalHitsCart(countHitsCart(cart));
+  }, [cart]);
 
   return (
     <>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
         <Tooltip title="Shopping cart">
           <IconButton component={Link} to={'/orders'} aria-label="cart">
-            <Badge badgeContent={4} color="secondary">
+            <Badge badgeContent={totalHitsCart} color="secondary">
               <ShoppingCart />
             </Badge>
           </IconButton>
@@ -43,9 +50,9 @@ export const UserMenu = () => {
             onClick={handleClick}
             size="small"
             sx={{ ml: 2 }}
-            aria-controls={open ? 'account-menu' : undefined}
+            aria-controls={isOpen ? 'account-menu' : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
+            aria-expanded={isOpen ? 'true' : undefined}
           >
             <AccountCircle sx={{ width: 32, height: 32 }}></AccountCircle>
           </IconButton>
@@ -55,7 +62,7 @@ export const UserMenu = () => {
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         onClick={handleClose}
         PaperProps={{
