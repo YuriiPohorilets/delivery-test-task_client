@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { ListItem, Card, CardContent, CardMedia, Box, Typography, Button } from '@mui/material';
 import { addToCart } from 'redux/cart/slice';
+import { item, card, contentWrapper, text, value, btnWrapper, button } from './productsItemStyles';
 
 export const ProductsItem = ({ product }) => {
   const dispatch = useDispatch();
@@ -8,35 +9,30 @@ export const ProductsItem = ({ product }) => {
   const { name, price, imgUrl } = product;
 
   return (
-    <ListItem sx={{ width: 'calc((100% - 32px) / 3)', p: 0 }}>
-      <Card sx={{ boxShadow: 1, bgcolor: 'secondary.main', borderRadius: '8px' }}>
-        <CardMedia
-          component="img"
-          alt={name}
-          image={imgUrl}
-          width={250}
-          height={180}
-          loading="lazzy"
-        />
+    <ListItem sx={item}>
+      <Card sx={card}>
+        <Box>
+          <CardMedia
+            component="img"
+            alt={name}
+            image={imgUrl}
+            width={250}
+            height={180}
+            loading="lazy"
+          />
 
-        <CardContent sx={{ display: 'flex', gap: '16px', justifyContent: 'space-between' }}>
-          <Typography>{name}</Typography>
-          <Typography>{price} UAH</Typography>
-        </CardContent>
+          <CardContent sx={contentWrapper}>
+            <Typography sx={text}>{name}</Typography>
+            <Typography sx={value}>{price} UAH</Typography>
+          </CardContent>
+        </Box>
 
-        <Box sx={{ p: '8px' }}>
+        <Box sx={btnWrapper}>
           <Button
             variant="outlined"
             type="button"
             onClick={() => dispatch(addToCart(product))}
-            sx={{
-              '&:hover': { bgcolor: 'neutral.main', borderColor: 'primary.darker' },
-              textTransform: 'none',
-              fontWeight: '700',
-              width: '100%',
-              color: 'primary.darker',
-              borderColor: 'primary.darker',
-            }}
+            sx={button}
           >
             Add to cart
           </Button>

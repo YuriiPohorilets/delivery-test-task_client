@@ -42,8 +42,6 @@ export const shopSlice = createSlice({
       })
 
       .addCase(logout.fulfilled, (state, action) => {
-        state.products = [];
-        state.shops = [];
         state.error = null;
         state.isLoading = false;
       }),

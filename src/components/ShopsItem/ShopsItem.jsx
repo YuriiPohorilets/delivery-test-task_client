@@ -1,24 +1,21 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ListItem, Card, CardMedia, CardActionArea } from '@mui/material';
+import { item, card, actionArea } from './shopsItemStyles';
 
 export const ShopsItem = ({ shop }) => {
   const { _id, name, imgUrl } = shop;
 
   return (
-    <ListItem sx={{ maxWidth: '250px', p: 0 }}>
-      <Card sx={{ bgcolor: 'transparent', boxShadow: 0 }}>
-        <CardActionArea
-          component={Link}
-          to={`/shops/${_id}`}
-          sx={{ overflow: 'hidden', width: '250px', height: '100px', borderRadius: '8px' }}
-        >
+    <ListItem sx={item}>
+      <Card sx={card}>
+        <CardActionArea component={NavLink} to={`/shops/${_id}`} sx={actionArea}>
           <CardMedia
             component="img"
             alt={name}
             image={imgUrl}
             width={250}
             height={180}
-            loading="lazzy"
+            loading="lazy"
           />
         </CardActionArea>
       </Card>

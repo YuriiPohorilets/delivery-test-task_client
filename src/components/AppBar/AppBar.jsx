@@ -5,21 +5,15 @@ import { NavBar } from 'components/NavBar/NavBar';
 import { AuthBar } from 'components/AuthBar/AuthBar';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { Logo } from 'components/Logo/Logo';
+import { appBar, headerWrapper } from './appBarStyles';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <MuiAppBar position="static" sx={{ p: '14px', boxShadow: 3 }}>
+    <MuiAppBar position="static" sx={appBar}>
       <Container>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '24px',
-          }}
-        >
+        <Box sx={headerWrapper}>
           <Logo />
           <NavBar />
 

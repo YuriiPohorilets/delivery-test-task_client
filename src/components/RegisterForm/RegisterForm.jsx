@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import { Box, TextField, Button } from '@mui/material';
 import { register } from 'redux/auth/operations';
 import { registerSchema } from 'schemas/registerSchema';
+import { form, inputWrapper, input, button } from 'shared/commonStyles';
 
 const initialValues = {
   email: '',
@@ -25,20 +26,8 @@ export const RegisterForm = ({ isLoading }) => {
 
   return (
     <>
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        sx={{ mb: '24px', width: '100%', maxWidth: '500px' }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '18px',
-            mb: '24px',
-            minWidth: '100%',
-          }}
-        >
+      <Box component="form" onSubmit={handleSubmit} sx={form}>
+        <Box sx={inputWrapper}>
           <TextField
             variant="outlined"
             label="Email"
@@ -49,7 +38,7 @@ export const RegisterForm = ({ isLoading }) => {
             onChange={handleChange}
             error={touched.email && !!errors.email}
             helperText={touched.email && errors.email}
-            sx={{ maxWidth: '100%', flex: '1 0 auto' }}
+            sx={input}
           />
 
           <TextField
@@ -62,7 +51,7 @@ export const RegisterForm = ({ isLoading }) => {
             onChange={handleChange}
             error={touched.password && !!errors.password}
             helperText={touched.password && errors.password}
-            sx={{ maxWidth: '100%', flex: '1 0 auto' }}
+            sx={input}
           />
 
           <TextField
@@ -75,7 +64,7 @@ export const RegisterForm = ({ isLoading }) => {
             onChange={handleChange}
             error={touched.name && !!errors.name}
             helperText={touched.name && errors.name}
-            sx={{ maxWidth: '100%', flex: '1 0 auto' }}
+            sx={input}
           />
 
           <TextField
@@ -88,7 +77,7 @@ export const RegisterForm = ({ isLoading }) => {
             onChange={handleChange}
             error={touched.phone && !!errors.phone}
             helperText={touched.phone && errors.phone}
-            sx={{ maxWidth: '100%', flex: '1 0 auto' }}
+            sx={input}
           />
 
           <TextField
@@ -101,16 +90,11 @@ export const RegisterForm = ({ isLoading }) => {
             onChange={handleChange}
             error={touched.address && !!errors.address}
             helperText={touched.address && errors.address}
-            sx={{ maxWidth: '100%', flex: '1 0 auto' }}
+            sx={input}
           />
         </Box>
 
-        <Button
-          type="submit"
-          variant="contained"
-          disabled={isLoading}
-          sx={{ p: '8px 16px', width: '100%', textTransform: 'none', fontSize: '18px' }}
-        >
+        <Button type="submit" variant="contained" disabled={isLoading} sx={button}>
           Register
         </Button>
       </Box>

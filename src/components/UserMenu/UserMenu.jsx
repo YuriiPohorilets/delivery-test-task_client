@@ -14,6 +14,7 @@ import {
 import { Logout, History, AccountCircle, ShoppingCart } from '@mui/icons-material/';
 import { logout } from 'redux/auth/operations';
 import { selectCart } from 'redux/cart/selectors';
+import { menuWrapper, dropper } from './userMenuStyles';
 
 export const UserMenu = () => {
   const [totalHitsCart, setTotalHitsCart] = useState(0);
@@ -36,7 +37,7 @@ export const UserMenu = () => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+      <Box sx={menuWrapper}>
         <Tooltip title="Shopping cart">
           <IconButton component={Link} to={'/orders'} aria-label="cart">
             <Badge badgeContent={totalHitsCart} color="secondary">
@@ -49,10 +50,10 @@ export const UserMenu = () => {
           <IconButton
             onClick={handleClick}
             size="small"
-            sx={{ ml: 2 }}
             aria-controls={isOpen ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={isOpen ? 'true' : undefined}
+            sx={{ ml: 2 }}
           >
             <AccountCircle sx={{ width: 32, height: 32 }}></AccountCircle>
           </IconButton>
@@ -67,29 +68,7 @@ export const UserMenu = () => {
         onClick={handleClose}
         PaperProps={{
           elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            '&:before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
+          sx: { dropper },
         }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
