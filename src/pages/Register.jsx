@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
-import { Box, Typography, LinearProgress } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { Title } from 'components/Title/Title';
+import { Loader } from 'components/Loader/Loader';
 import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
 export const Register = () => {
@@ -12,11 +13,7 @@ export const Register = () => {
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Title>Sign up to continue</Title>
 
-      {isLoading && (
-        <Box sx={{ width: '70%', mb: '24px' }}>
-          <LinearProgress />
-        </Box>
-      )}
+      {isLoading && <Loader />}
 
       <RegisterForm isLoading={isLoading} />
 

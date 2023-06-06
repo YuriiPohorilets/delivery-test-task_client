@@ -1,12 +1,21 @@
+import { useSelector } from 'react-redux';
 import { Box } from '@mui/material';
 import { OrderList } from 'components/OrderList/OrderList';
 import { OrderMenu } from 'components/OrderMenu/OrderMenu';
+import { Loader } from 'components/Loader/Loader';
+import { selectIsLoading } from 'redux/order/selectors';
 
 export const Orders = () => {
+  const isLoading = useSelector(selectIsLoading);
+
   return (
-    <Box sx={{ display: 'flex', gap: '36px' }}>
-      <OrderList />
-      <OrderMenu />
-    </Box>
+    <>
+      {isLoading && <Loader />}
+
+      <Box sx={{ display: 'flex', gap: '36px' }}>
+        <OrderList />
+        <OrderMenu isLoading={isLoading} />
+      </Box>
+    </>
   );
 };

@@ -9,7 +9,9 @@ import {
   Button,
   Divider,
 } from '@mui/material';
+import { Add, Remove, Delete } from '@mui/icons-material/';
 import { removeProduct, incrementQuantity, decrementQuantity } from 'redux/cart/slice';
+import { item, card, title, contentWrapper, value, actionArea, button } from './orderItemStyles';
 
 export const OrderItem = ({ product }) => {
   const dispatch = useDispatch();
@@ -17,18 +19,8 @@ export const OrderItem = ({ product }) => {
   const { name, price, imgUrl, quantity, _id } = product;
 
   return (
-    <ListItem sx={{ width: 'calc((100% - 32px) / 3)', p: 0 }}>
-      <Card
-        sx={{
-          boxShadow: 1,
-          bgcolor: 'secondary.main',
-          borderRadius: '8px',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-        }}
-      >
+    <ListItem sx={item}>
+      <Card sx={card}>
         <Box>
           <CardMedia
             component="img"
@@ -36,78 +28,50 @@ export const OrderItem = ({ product }) => {
             image={imgUrl}
             width={250}
             height={180}
-            loading="lazzy"
+            loading="lazy"
           />
 
-          <CardContent sx={{ display: 'flex', justifyContent: 'space-between', p: '4px 16px' }}>
-            <Typography
-              sx={{
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
-                maxWidth: '100%',
-              }}
-            >
-              {name}
-            </Typography>
-          </CardContent>
+          <Typography sx={title}>{name}</Typography>
         </Box>
 
-        <Divider light />
+        <Divider />
 
-        <CardContent sx={{ display: 'flex', gap: '4px', flexDirection: 'column', py: '8px' }}>
+        <CardContent sx={contentWrapper}>
           <Typography>Quantity: {quantity}</Typography>
           <Typography>Price: {price} UAH</Typography>
 
-          <Typography sx={{ fontWeight: 700, color: 'primary.darker' }}>
-            Total price: {price * quantity} UAH
-          </Typography>
+          <Typography sx={value}>Total price: {price * quantity} UAH</Typography>
         </CardContent>
 
-        <Box sx={{ p: '8px', display: 'flex', gap: '8px' }}>
+        <Divider />
+
+        <Box sx={actionArea}>
           <Button
             variant="outlined"
             type="button"
             onClick={() => dispatch(incrementQuantity(_id))}
-            sx={{
-              '&:hover': { bgcolor: 'neutral.main', borderColor: 'primary.darker' },
-              textTransform: 'none',
-              fontWeight: '700',
-              color: 'primary.darker',
-              borderColor: 'primary.darker',
-            }}
+            sx={button}
           >
-            +
+            <Add />
           </Button>
 
           <Button
             variant="outlined"
             type="button"
+            disabled={quantity === 1}
             onClick={() => dispatch(decrementQuantity(_id))}
-            sx={{
-              '&:hover': { bgcolor: 'neutral.main', borderColor: 'primary.darker' },
-              textTransform: 'none',
-              fontWeight: '700',
-              color: 'primary.darker',
-              borderColor: 'primary.darker',
-            }}
+            sx={button}
           >
-            -
+            <Remove />
           </Button>
 
           <Button
             variant="outlined"
             type="button"
             onClick={() => dispatch(removeProduct(_id))}
-            sx={{
-              '&:hover': { bgcolor: 'neutral.main', borderColor: 'primary.darker' },
-              textTransform: 'none',
-              fontWeight: '700',
-              color: 'primary.darker',
-              borderColor: 'primary.darker',
-            }}
+            sx={button}
           >
-            Remove
+            <Delete />
           </Button>
         </Box>
       </Card>
