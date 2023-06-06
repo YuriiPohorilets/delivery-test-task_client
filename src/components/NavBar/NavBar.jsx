@@ -7,6 +7,12 @@ export const NavBar = () => {
     <Box component={'nav'}>
       <List sx={list}>
         <ListItem sx={item}>
+          <Button component={NavLink} to={'/'} sx={button}>
+            Home
+          </Button>
+        </ListItem>
+
+        <ListItem sx={item}>
           <Button component={NavLink} to={'/shops'} sx={button}>
             Shops
           </Button>

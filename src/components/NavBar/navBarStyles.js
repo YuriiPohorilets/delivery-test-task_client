@@ -1,5 +1,8 @@
 export const list = {
   p: 0,
+
+  display: 'flex',
+  gap: '16px',
 };
 
 export const item = {

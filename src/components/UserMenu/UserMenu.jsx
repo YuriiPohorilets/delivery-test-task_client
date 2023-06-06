@@ -73,14 +73,14 @@ export const UserMenu = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem disabled={true} onClick={handleClose}>
           <ListItemIcon>
             <AccountCircle fontSize="medium" />
           </ListItemIcon>
           Profile
         </MenuItem>
 
-        <MenuItem onClick={handleClose}>
+        <MenuItem disabled={true} onClick={handleClose}>
           <ListItemIcon>
             <History fontSize="medium" />
           </ListItemIcon>

@@ -14,8 +14,10 @@ export const AppBar = () => {
     <MuiAppBar position="static" sx={appBar}>
       <Container>
         <Box sx={headerWrapper}>
-          <Logo />
-          <NavBar />
+          <Box sx={{ display: 'flex', gap: '80px' }}>
+            <Logo />
+            <NavBar />
+          </Box>
 
           {isLoggedIn ? <UserMenu /> : <AuthBar />}
         </Box>

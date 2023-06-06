@@ -11,7 +11,7 @@ export const theme = createTheme({
     },
 
     neutral: {
-      main: 'rgba(164, 208, 164, 0.3)',
+      main: 'rgba(164, 208, 164, 0.4)',
       darker: 'rgba(97, 122, 85, 0.4)',
       light: 'rgba(255, 255, 255, 0.4)',
       accent: 'rgba(247, 225, 174, 0.4)',

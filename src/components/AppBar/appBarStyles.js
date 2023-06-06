@@ -1,5 +1,5 @@
 export const appBar = {
-  py: '8px',
+  py: '16px',
 
   boxShadow: 2,
 };

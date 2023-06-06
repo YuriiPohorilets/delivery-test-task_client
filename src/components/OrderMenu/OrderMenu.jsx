@@ -167,7 +167,12 @@ export const OrderMenu = ({ isLoading }) => {
           />
         </Box>
 
-        <Button type="submit" disabled={isLoading} variant="contained" sx={button}>
+        <Button
+          type="submit"
+          disabled={isLoading || cart.length === 0}
+          variant="contained"
+          sx={button}
+        >
           Order
         </Button>
       </Box>
