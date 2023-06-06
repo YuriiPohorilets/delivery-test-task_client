@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3001/api/';
+axios.defaults.baseURL = 'https://vast-lime-duckling-boot.cyclic.app/api/';
 
 export const getShops = createAsyncThunk('shops/getShops', async (_, { rejectWithValue }) => {
   try {
