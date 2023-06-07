@@ -5,6 +5,7 @@ import { Box, Typography, Divider, TextField, Button } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
 import { selectCart } from 'redux/cart/selectors';
 import { createOrder } from 'redux/order/operations';
+import { clearCart } from 'redux/cart/slice';
 import { orderSchema } from 'schemas/orderSchema';
 import 'react-toastify/dist/ReactToastify.css';
 import { form, inputWrapper, input, button } from 'shared/commonStyles';
@@ -47,6 +48,7 @@ export const OrderMenu = ({ isLoading }) => {
         })
       );
 
+      dispatch(clearCart());
       resetForm();
       toast.success('Your order is on way to you!');
     },
