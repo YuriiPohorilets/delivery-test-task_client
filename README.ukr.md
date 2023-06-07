@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+**Читати іншою мовою: [Українська](README.ukr.md), [English](README.md).**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Delivery | Frontend
 
-## Available Scripts
+Це репозиторій, який містить клієнтську частину додатку **Delivery**. Цей додаток демонструє базовий
+функціонал системи доставки інтернет-замовлень.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+# [Жива сторінка](https://yuriipohorilets.github.io/delivery-test-task_client/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Вимоги
 
-### `npm test`
+Перед використанням цього додатку переконайтеся, що на вашому комп'ютері встановлені наступні
+компоненти:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org)
+- [npm](https://www.npmjs.com/get-npm)
 
-### `npm run build`
+## Установка
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Клонуйте цей репозиторій на свій локальний комп'ютер:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+git clone https://github.com/YuriiPohorilets/delivery-test-task_client.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Перейдіть до папки проекту:
 
-### `npm run eject`
+```shell
+cd delivery-test-task_client
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Встановіть залежності, використовуючи npm:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```shell
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Запуск
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Запустіть додаток:
 
-## Learn More
+```shell
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Відкрийте браузер і перейдіть за адресою `http://localhost:3000`, щоб переглянути додаток.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Використання
 
-### Code Splitting
+Цей додаток надає інтерфейс для перегляду та керування замовленнями доставки. Ви можете переглядати
+список доступних замовлень, переглядати деталі кожного замовлення, а також змінювати статуси
+замовлень.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Стек технологій
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[![JavaScrip](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](#)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
+[![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)](#)
+[![MUI](https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white)](#)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# [Backend repository](https://github.com/YuriiPohorilets/delivery-test-task_server)
