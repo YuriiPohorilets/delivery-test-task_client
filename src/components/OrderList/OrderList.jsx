@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { List, Typography } from '@mui/material';
 import { selectCart } from 'redux/cart/selectors';
 import { OrderItem } from 'components/OrderItem/OrderItem';
-import { list } from './orderListStyles';
+import { list, placeholder } from './orderListStyles';
 
 export const OrderList = () => {
   const { cart } = useSelector(selectCart);
@@ -16,9 +16,7 @@ export const OrderList = () => {
           ))}
         </List>
       ) : (
-        <Typography sx={{ fontSize: '32px', flex: '1 0 auto', color: 'primary.darker' }}>
-          Your cart is empty!
-        </Typography>
+        <Typography sx={placeholder}>Your cart is empty!</Typography>
       )}
     </>
   );

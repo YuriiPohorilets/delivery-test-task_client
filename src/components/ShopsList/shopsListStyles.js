@@ -1,9 +1,10 @@
 export const list = {
   p: '16px',
   maxHeight: '610px',
+  minWidth: '282px',
 
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: { xs: 'row', md: 'column' },
   alignItems: 'center',
   gap: '16px',
 

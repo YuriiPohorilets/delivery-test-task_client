@@ -1,6 +1,6 @@
 export const item = {
   p: 0,
-  width: 'calc((100% - 16px) / 2)',
+  width: { xs: '100%', sm: 'calc((100% - 16px) / 2)' },
 
   alignItems: 'start',
 };

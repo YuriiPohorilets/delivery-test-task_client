@@ -4,7 +4,6 @@ export const list = {
   maxHeight: '610px',
 
   display: 'flex',
-  flex: '1 0 auto',
   gap: '16px',
   flexWrap: 'wrap',
 

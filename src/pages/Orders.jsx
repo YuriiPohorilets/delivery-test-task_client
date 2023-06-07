@@ -12,7 +12,14 @@ export const Orders = () => {
     <>
       {isLoading && <Loader />}
 
-      <Box sx={{ display: 'flex', gap: '36px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '36px',
+          justifyContent: { xs: 'center', md: 'space-between' },
+          flexWrap: { xs: 'wrap', md: 'nowrap' },
+        }}
+      >
         <OrderList />
         <OrderMenu isLoading={isLoading} />
       </Box>

@@ -5,7 +5,7 @@ import { NavBar } from 'components/NavBar/NavBar';
 import { AuthBar } from 'components/AuthBar/AuthBar';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { Logo } from 'components/Logo/Logo';
-import { appBar, headerWrapper } from './appBarStyles';
+import { appBar, headerWrapper, wrapper } from './appBarStyles';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
@@ -14,7 +14,7 @@ export const AppBar = () => {
     <MuiAppBar position="static" sx={appBar}>
       <Container>
         <Box sx={headerWrapper}>
-          <Box sx={{ display: 'flex', gap: '80px' }}>
+          <Box sx={wrapper}>
             <Logo />
             <NavBar />
           </Box>

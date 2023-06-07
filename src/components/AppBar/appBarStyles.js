@@ -6,7 +6,15 @@ export const appBar = {
 
 export const headerWrapper = {
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: { xs: 'center', md: 'space-between' },
   alignItems: 'center',
   gap: '24px',
+  flexWrap: 'wrap',
+};
+
+export const wrapper = {
+  display: 'flex',
+  justifyContent: { xs: 'center', md: 'space-between' },
+  gap: { xs: '24px', md: '80px' },
+  flexWrap: 'wrap',
 };

@@ -20,7 +20,7 @@ export const Shops = () => {
     <>
       {isLoading && <Loader />}
 
-      <Box sx={{ display: 'flex', gap: '36px' }}>
+      <Box sx={{ display: 'flex', gap: '36px', flexWrap: { xs: 'wrap', md: 'nowrap' } }}>
         <SideBar />
 
         <Suspense>

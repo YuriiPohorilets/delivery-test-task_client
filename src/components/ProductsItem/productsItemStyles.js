@@ -1,6 +1,6 @@
 export const item = {
   p: 0,
-  width: 'calc((100% - 32px) / 3)',
+  width: { sx: '100%', sm: 'calc((100% - 32px) / 3)' },
 };
 
 export const card = {
@@ -19,6 +19,7 @@ export const contentWrapper = {
   display: 'flex',
   gap: '16px',
   justifyContent: 'space-between',
+  flexWrap: 'wrap',
 };
 
 export const text = {
@@ -30,7 +31,7 @@ export const value = {
 
   fontWeight: 700,
   color: 'primary.darker',
-  textAlign: 'right',
+  textAlign: 'left',
 };
 
 export const btnWrapper = {

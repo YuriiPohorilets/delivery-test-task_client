@@ -2,10 +2,24 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { Box, Typography, Divider, TextField, Button } from '@mui/material';
+import { toast, ToastContainer } from 'react-toastify';
 import { selectCart } from 'redux/cart/selectors';
 import { createOrder } from 'redux/order/operations';
 import { orderSchema } from 'schemas/orderSchema';
+import 'react-toastify/dist/ReactToastify.css';
 import { form, inputWrapper, input, button } from 'shared/commonStyles';
+import {
+  wrapper,
+  title,
+  subtitle,
+  orderList,
+  orderItem,
+  orderName,
+  content,
+  contentText,
+  valueWrapper,
+  value,
+} from './orderMenuStyles';
 
 export const OrderMenu = ({ isLoading }) => {
   const [amount, setAmount] = useState(0);
@@ -34,6 +48,7 @@ export const OrderMenu = ({ isLoading }) => {
       );
 
       resetForm();
+      toast.success('Your order is on way to you!');
     },
   });
 
@@ -49,49 +64,20 @@ export const OrderMenu = ({ isLoading }) => {
   }, [cart]);
 
   return (
-    <Box
-      sx={{
-        p: '16px',
-        maxHeight: '610px',
-
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '16px',
-        flex: '1 0 auto',
-
-        bgcolor: 'secondary.main',
-        borderRadius: '8px',
-        boxShadow: 2,
-
-        overflowY: 'auto',
-      }}
-    >
-      <Typography sx={{ fontSize: '20px', fontWeight: 700 }}>Make an order</Typography>
+    <Box sx={wrapper}>
+      <Typography sx={title}>Make an order</Typography>
 
       <Box sx={{ width: '100%' }}>
-        <Typography sx={{ fontWeight: 700, fontSize: '18px', mb: '8px' }}>Your order:</Typography>
+        <Typography sx={subtitle}>Your order:</Typography>
 
-        <Box component="ul" sx={{ mb: '16px' }}>
-          {cart.map(({ _id, name, price, quantity, owner }) => (
-            <Box
-              component="li"
-              key={_id}
-              sx={{
-                display: 'flex',
-                gap: '8px',
-                justifyContent: 'space-between',
-              }}
-            >
-              <Typography sx={{ flex: '1 0 auto' }}>{name}:</Typography>
+        <Box component="ul" sx={orderList}>
+          {cart.map(({ _id, name, price, quantity }) => (
+            <Box component="li" key={_id} sx={orderItem}>
+              <Typography sx={orderName}>{name}:</Typography>
 
-              <Box
-                sx={{ display: 'flex', gap: '16px', flex: '1 0 160px', justifyContent: 'flex-end' }}
-              >
-                <Typography sx={{ width: '80px', textAlign: 'right' }}>x{quantity}</Typography>
-                <Typography sx={{ width: '80px', textAlign: 'right' }}>
-                  {quantity * price} UAH
-                </Typography>
+              <Box sx={content}>
+                <Typography sx={contentText}>x{quantity}</Typography>
+                <Typography sx={contentText}>{quantity * price} UAH</Typography>
               </Box>
             </Box>
           ))}
@@ -99,14 +85,10 @@ export const OrderMenu = ({ isLoading }) => {
 
         <Divider />
 
-        <Box sx={{ my: '16px', display: 'flex', justifyContent: 'space-between', gap: '16px' }}>
-          <Typography sx={{ fontSize: '18px', color: 'primary.darker', fontWeight: 700 }}>
-            Amount:
-          </Typography>
+        <Box sx={valueWrapper}>
+          <Typography sx={value}>Amount:</Typography>
 
-          <Typography sx={{ fontSize: '18px', color: 'primary.darker', fontWeight: 700 }}>
-            {amount} UAH
-          </Typography>
+          <Typography sx={value}>{amount} UAH</Typography>
         </Box>
 
         <Divider />
@@ -176,6 +158,8 @@ export const OrderMenu = ({ isLoading }) => {
           Order
         </Button>
       </Box>
+
+      <ToastContainer />
     </Box>
   );
 };
